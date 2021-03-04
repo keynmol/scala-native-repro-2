@@ -1,12 +1,8 @@
-abstract class TestStuff(cmd: () => Unit) {
-  def this(name: String) = this {
-    () => println(name)
-  }
-
+abstract class TestStuff(stuff: String) {
   def main(args: Array[String]) = {
-    cmd()
+    println(stuff)
   }
 }
 
-object Hello extends TestStuff("bla")
+object Hello extends TestStuff("hello")
 
