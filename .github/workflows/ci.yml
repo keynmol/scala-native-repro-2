@@ -1,0 +1,20 @@
+jobs:
+  build:
+    name: Build and Test
+    strategy:
+      matrix:
+        project: ["test", "testJS", "testNative"]
+    steps:
+      - name: Checkout current branch (full)
+        uses: actions/checkout@v2
+      - name: Setup Java and Scala
+        uses: olafurpg/setup-scala@v10
+      - name: Setup Scala Native environment
+        run: |
+            sudo apt-get update
+            sudo apt install clang
+      - name: Run
+        run: sbt ${{ matrix.project }}/run
+
+
+
