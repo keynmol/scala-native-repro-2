@@ -5,8 +5,10 @@ jobs:
   build:
     name: Build and Test
     strategy:
+      fail-fast: false
       matrix:
         project: ["test", "testJS", "testNative"]
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout current branch (full)
         uses: actions/checkout@v2
